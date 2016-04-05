@@ -1,0 +1,16 @@
+[
+{
+  "modid": "commonores",
+  "name": "Common Ores",
+  "description": "MCUpdater's Dynamically Configurable Ores Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["allaryin","smbarbour"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
