@@ -1,0 +1,42 @@
+Common Ores
+-----------
+A fully configurable metal/ore mod.
+  - Dynamically creates metals if necessary, but prefers to use those provided
+    by other mods instead wherever possible.
+  - Ships with presets for all of the "standard" forge ores and alloys:
+    - ores: copper, tin, lead, silver, nickel, platinum
+    - alloys: bronze, electrum, steel
+    - disabled by default but provided in config: aluminum, zinc, brass
+  - Ships ZERO new tools or armour, this is an ore/metal mod.
+
+Configure each ore in config files.
+  - generation parameters:
+    - depth, dimension(s), frequency, vein type/shape
+    - hardness
+    - cogeneration with other metals
+    ? biome preferences
+    ? alternate stone type support (diorite, sandstone, endstone, etc...)
+
+Configurable alloy recipes.
+  - default to 1+1=2 recipes with a toggle for 3+1=4
+  - defaults can be overwritten by completely custom recipes instead
+
+Option to provide alternatives to iron in vanilla recipes.
+  - Ships with config that allows aluminum and bronze as drop-in replacement
+    for iron in most vanilla non-equipment recipes
+
+Every metal generates all common forms.
+  - ore, ingot, nugget, block, dust
+
+Support for dense and poor ore.
+  - dense ores drop multiple ore blocks when broken
+  - poor ores drop dusts or nuggets when broken
+
+Option to replace vanilla generation.
+
+Option to invoke retrogen.
+
+Provides an inexpensive entry tier manual grinder for turning ore into dust.
+
+Provides some sort of inexpensive oredictionary conversion tool.
+
