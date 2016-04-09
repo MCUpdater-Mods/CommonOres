@@ -1,0 +1,6 @@
+itemGroup.commonores=Common Ores
+
+tile.blockOre.name.suffix=Ore
+
+tile.blockOre.Copper.name=Copper Ore
+tile.blockOre.Tin.name=Tin Ore
