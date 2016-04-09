@@ -1,15 +1,7 @@
 package com.mcupdater.commonores.world;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.google.common.collect.Maps;
-
 import com.mcupdater.commonores.CommonOres;
 import com.mcupdater.commonores.CreativeTabCO;
-import com.mcupdater.commonores.api.PropertyOreType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,11 +17,13 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.awt.*;
+import java.util.List;
 
 public class BlockOre extends Block {
 
@@ -96,6 +90,12 @@ public class BlockOre extends Block {
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState blockState, EntityLivingBase placer, ItemStack stack) {
 		super.onBlockPlacedBy(world, pos, blockState, placer, stack);
 		world.setBlockState(pos, blockState.withProperty(TYPE, stack.getMetadata()), 2);
+	}
+
+	@Override
+	public int damageDropped(IBlockState state)
+	{
+		return state.getValue(TYPE);
 	}
 
 	public static class ColorHandler implements IBlockColor, IItemColor {
