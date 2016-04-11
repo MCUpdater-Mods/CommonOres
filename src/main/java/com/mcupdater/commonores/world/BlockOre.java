@@ -98,33 +98,6 @@ public class BlockOre extends Block {
 		return state.getValue(TYPE);
 	}
 
-	public static class ColorHandler implements IBlockColor, IItemColor {
-		@Override
-		public int colorMultiplier(IBlockState state, IBlockAccess access, BlockPos pos, int tintIndex) {
-			return getColor(tintIndex, state.getValue(TYPE));
-		}
-
-		@Override
-		public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-			return getColor(tintIndex, stack.getMetadata());
-		}
-
-		private int getColor(int tintIndex, Integer type) {
-			int color;
-			switch(type) {
-				case 0:
-					color = new Color(200,150,0).getRGB();
-					break;
-				case 1:
-					color = new Color(250, 250, 250).getRGB();
-					break;
-				default:
-					color = -1;
-			}
-			return (tintIndex == 0 ? -1 : color);
-		}
-	}
-
 	private class ItemOreBlock extends ItemBlock {
 
 		public ItemOreBlock(BlockOre blockOre) {

@@ -1,6 +1,5 @@
 itemGroup.commonores=Common Ores
 
-tile.blockOre.name.suffix=Ore
-
-tile.blockOre.Copper.name=Copper Ore
-tile.blockOre.Tin.name=Tin Ore
+commonores.ore.name.suffix=Ore
+commonores.ingot.name.suffix=Ingot
+commonores.dust.name.suffix=Dust
