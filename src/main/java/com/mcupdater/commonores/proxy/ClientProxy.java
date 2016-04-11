@@ -5,15 +5,9 @@ import com.mcupdater.commonores.client.ResourceListener;
 import com.mcupdater.commonores.util.ColorHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.resources.Locale;
 import net.minecraft.client.resources.SimpleReloadableResourceManager;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.translation.I18n;
-import net.minecraft.util.text.translation.LanguageMap;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
-
-import java.io.ByteArrayInputStream;
 
 public class ClientProxy extends CommonProxy {
 

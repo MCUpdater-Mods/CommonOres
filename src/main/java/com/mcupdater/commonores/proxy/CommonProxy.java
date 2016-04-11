@@ -1,9 +1,6 @@
 package com.mcupdater.commonores.proxy;
 
-import com.mcupdater.commonores.client.ResourceListener;
 import com.mcupdater.commonores.util.LanguageBuilder;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.util.text.translation.LanguageMap;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
