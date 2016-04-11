@@ -43,6 +43,13 @@ public class Config {
 		config = new Configuration(configFile);
 		config.load();
 		
+		initConfigFile();
+		loadDefinitions();
+		
+		config.save();
+	}
+	
+	private void initConfigFile() {
 		// parse the config
 		for( ConfigSettings option : ConfigSettings.values() ) {
 			final Property prop;
@@ -58,8 +65,26 @@ public class Config {
 				option.value = prop.getString();
 			}
 		}
+	}
+	
+	private void loadDefinitions() {
+		final File dir = new File(config.getConfigFile().getParent(), ConfigSettings.DEFINITION_DIRECTORY.getString());
+		if( !dir.exists() ) {
+			dir.mkdirs();
+		} else if( !dir.isDirectory() ) {
+			// TODO: complain loudly
+			return;
+		}
 		
-		config.save();
+		// TODO: filter the file list for .json extension
+		for( final File file : dir.listFiles() ) {
+			parseDefinitions(file);
+		}
+	}
+
+	private void parseDefinitions(File file) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
