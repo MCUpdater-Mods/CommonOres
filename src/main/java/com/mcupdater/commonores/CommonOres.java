@@ -1,20 +1,21 @@
 package com.mcupdater.commonores;
 
-import com.mcupdater.commonores.items.ItemIngot;
-import com.mcupdater.commonores.proxy.CommonProxy;
-import com.mcupdater.commonores.util.LanguageBuilder;
-import com.mcupdater.commonores.world.BlockOre;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mcupdater.commonores.items.ItemIngot;
 import com.mcupdater.commonores.proxy.CommonProxy;
 import com.mcupdater.commonores.world.BlockOre;
+
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = "commonores", useMetadata = true)
