@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+@Mod.EventBusSubscriber
 @Mod(modid = "commonores", useMetadata = true)
 public class CommonOres {
 
