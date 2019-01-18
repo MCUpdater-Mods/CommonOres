@@ -18,7 +18,7 @@ public class ColorHandler implements IBlockColor, IItemColor {
 	}
 
 	@Override
-	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+	public int colorMultiplier(ItemStack stack, int tintIndex) {
 		return getColor(tintIndex, stack.getMetadata());
 	}
 

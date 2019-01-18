@@ -1,11 +1,12 @@
 package com.mcupdater.commonores;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class CreativeTabCO extends CreativeTabs {
 
 	private static CreativeTabCO instance;
+	private ItemStack iconItem;
 
 	public CreativeTabCO() {
 		super(CommonOres.metadata.modId);
@@ -20,7 +21,11 @@ public class CreativeTabCO extends CreativeTabs {
 	}
 
 	@Override
-	public Item getTabIconItem() {
-		return CommonOres.oreBlock.getItemBlock();
+	public ItemStack getTabIconItem() {
+		if (getInstance().iconItem == null) {
+			getInstance().iconItem = new ItemStack(CommonOres.oreBlock.getItemBlock(), 1);
+		}
+
+		return getInstance().iconItem;
 	}
 }

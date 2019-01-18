@@ -8,49 +8,44 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.awt.*;
-import java.util.List;
 
 public class BlockOre extends Block {
 
 	public static final PropertyInteger TYPE;
 
 	static {
-		TYPE = PropertyInteger.create("type",0,CommonOres.types.size());
+		TYPE = PropertyInteger.create("type", 0, CommonOres.types.size());
 	}
 
 	private Item itemBlock;
 
 	public BlockOre() {
-		super(Material.rock, Material.rock.getMaterialMapColor());
+		super(Material.ROCK, Material.ROCK.getMaterialMapColor());
 		setUnlocalizedName("blockOre");
 		setRegistryName(CommonOres.metadata.modId, "blockOre");
 		setHardness(3.0F);
 		setResistance(5.0F);
-		setStepSound(SoundType.STONE);
-		setHarvestLevel("pickaxe",1);
+		setSoundType(SoundType.STONE);
+		setHarvestLevel("pickaxe", 1);
 		setDefaultState(this.blockState.getBaseState().withProperty(TYPE, 0));
-		
+
 		itemBlock = this.generateItemBlock();
 		setCreativeTab(CreativeTabCO.getInstance());
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()	{
+	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 
@@ -65,8 +60,8 @@ public class BlockOre extends Block {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
-		for( int type = 0; type < CommonOres.types.size(); type++) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
+		for (int type = 0; type < CommonOres.types.size(); type++) {
 			list.add(new ItemStack(this, 1, type));
 		}
 	}
@@ -93,8 +88,7 @@ public class BlockOre extends Block {
 	}
 
 	@Override
-	public int damageDropped(IBlockState state)
-	{
+	public int damageDropped(IBlockState state) {
 		return state.getValue(TYPE);
 	}
 
