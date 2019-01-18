@@ -51,7 +51,7 @@ public class WorldGenCommonOres implements IWorldGenerator {
 		for( int k = 0; k < tries; ++k) {
 			final int x = chunkX * 16 + rand.nextInt(16);
 			final int y = minHeight + rand.nextInt(_y);
-			final int z = chunkX * 16 + rand.nextInt(16);
+			final int z = chunkZ * 16 + rand.nextInt(16);
 			final BlockPos pos = new BlockPos(x,y,z);
 
 			if ( gen.generate(world, rand, pos) ) {
