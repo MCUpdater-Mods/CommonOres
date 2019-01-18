@@ -9,7 +9,7 @@ public class CommonProxy {
 
 	protected String localizations;
 
-	public void preInit() {};
+	public void preInit() {}
 
 	public void loadComplete() {}
 
