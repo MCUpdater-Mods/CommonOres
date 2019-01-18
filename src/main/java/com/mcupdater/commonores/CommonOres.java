@@ -3,6 +3,7 @@ package com.mcupdater.commonores;
 import com.mcupdater.commonores.items.ItemIngot;
 import com.mcupdater.commonores.proxy.CommonProxy;
 import com.mcupdater.commonores.world.BlockOre;
+import com.mcupdater.commonores.world.WorldGenCommonOres;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
@@ -78,6 +80,8 @@ public class CommonOres {
 	public void postInit(FMLPostInitializationEvent event) {
 		log.info("postInit");
 		proxy.registerRenders();
+
+		GameRegistry.registerWorldGenerator(new WorldGenCommonOres(oreBlock), 0);
 	}
 
 	@EventHandler
