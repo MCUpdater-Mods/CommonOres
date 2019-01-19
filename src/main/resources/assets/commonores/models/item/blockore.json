@@ -1,5 +1,5 @@
 {
-  "parent": "commonores:block/blockOre",
+  "parent": "commonores:block/blockore",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

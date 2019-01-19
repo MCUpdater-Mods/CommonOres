@@ -32,8 +32,8 @@ public class BlockOre extends Block {
 
 	public BlockOre() {
 		super(Material.ROCK, Material.ROCK.getMaterialMapColor());
-		setUnlocalizedName("blockOre");
-		setRegistryName(CommonOres.metadata.modId, "blockOre");
+		setUnlocalizedName("blockore");
+		setRegistryName(CommonOres.metadata.modId, "blockore");
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setSoundType(SoundType.STONE);
@@ -96,14 +96,14 @@ public class BlockOre extends Block {
 
 		public ItemOreBlock(BlockOre blockOre) {
 			super(blockOre);
-			setUnlocalizedName("blockOre");
-			setRegistryName(CommonOres.metadata.modId, "blockOre");
+			setUnlocalizedName("blockore");
+			setRegistryName(CommonOres.metadata.modId, "blockore");
 			setHasSubtypes(true);
 		}
 
 		@Override
 		public String getUnlocalizedName(ItemStack stack) {
-			return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata());
+			return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata()).toLowerCase();
 		}
 	}
 }

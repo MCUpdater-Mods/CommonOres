@@ -26,6 +26,6 @@
   "textures": {
     "particle": "blocks/stone",
     "base": "blocks/stone",
-    "overlay": "commonores:blocks/oreFlecks"
+    "overlay": "commonores:blocks/oreflecks"
   }
 }

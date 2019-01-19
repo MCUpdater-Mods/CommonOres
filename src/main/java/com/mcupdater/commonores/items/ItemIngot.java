@@ -30,6 +30,6 @@ public class ItemIngot extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata());
+		return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata()).toLowerCase();
 	}
 }
