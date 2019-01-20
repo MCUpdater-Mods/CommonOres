@@ -2,6 +2,7 @@ package com.mcupdater.commonores;
 
 import com.mcupdater.commonores.items.ItemIngot;
 import com.mcupdater.commonores.proxy.CommonProxy;
+import com.mcupdater.commonores.util.OreHandler;
 import com.mcupdater.commonores.world.BlockOre;
 import com.mcupdater.commonores.world.WorldGenCommonOres;
 import net.minecraft.block.Block;
@@ -44,6 +45,7 @@ public class CommonOres {
 
 		metadata = event.getModMetadata();
 		config = new Config(event.getSuggestedConfigurationFile());
+		log.info("loaded definitions for "+OreHandler.numTypes()+" ore types...");
 
 		// TODO: fork this out into a separate handler
 		final String[] oreTypes = {"Copper", "Tin"};
@@ -51,6 +53,7 @@ public class CommonOres {
 		for (String type : oreTypes) {
 			types.add(type);
 		}
+
 		oreBlock = new BlockOre();
 		ingotItem = new ItemIngot();
 

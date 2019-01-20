@@ -1,0 +1,13 @@
+{
+  "name": "tin",
+  "enabled": true,
+  "color": [ 250, 250, 250 ],
+  "gen": {
+    "minY": 48,
+    "maxY": 128,
+    "size": 8,
+    "chance": 100,
+    "tries": 10
+  },
+  "tool_level": "stone"
+}

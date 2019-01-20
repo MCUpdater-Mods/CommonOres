@@ -1,0 +1,13 @@
+{
+  "name": "copper",
+  "enabled": true,
+  "color": [ 200, 150, 0 ],
+  "gen": {
+    "minY": 32,
+    "maxY": 96,
+    "size": 8,
+    "chance": 100,
+    "tries": 10
+  },
+  "tool_level": "stone"
+}

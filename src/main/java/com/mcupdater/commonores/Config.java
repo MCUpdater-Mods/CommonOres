@@ -1,9 +1,14 @@
 package com.mcupdater.commonores;
 
-import java.io.File;
+import java.io.*;
 
+import com.mcupdater.commonores.util.OreHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import org.apache.commons.io.FileUtils;
 
 public class Config {
 	
@@ -36,6 +41,8 @@ public class Config {
 			return (String)value;
 		}
 	}
+
+	public static final String[] DEFAULT_ORES = { "copper", "tin" };
 	
 	private final Configuration config;
 
@@ -72,19 +79,41 @@ public class Config {
 		if( !dir.exists() ) {
 			dir.mkdirs();
 		} else if( !dir.isDirectory() ) {
-			// TODO: complain loudly
-			return;
+			throw new RuntimeException("ore definition directory '"+dir+"' is not a directory");
 		}
-		
-		// TODO: filter the file list for .json extension
-		for( final File file : dir.listFiles() ) {
-			parseDefinitions(file);
+
+		if( parseDefinitionDir(dir) == 0 ) {
+			// we didn't find any definitions, load our defaults
+			CommonOres.log.info("no ore definitions found, initializing with defaults");
+			// TODO: copy defs over
+			try {
+				final IResourceManager manager = Minecraft.getMinecraft().getResourceManager();
+				for( String ore : DEFAULT_ORES ) {
+					final ResourceLocation loc = new ResourceLocation(CommonOres.metadata.modId, "defaults/"+ore+".json");
+					final InputStream in = manager.getResource(loc).getInputStream();
+					final File out = new File(dir+"/"+ore+".json");
+					FileUtils.copyInputStreamToFile(in, out);
+				}
+			} catch( IOException e ) {
+				CommonOres.log.error("error reading default definitions", e);
+			}
+			// try to parse again now
+			parseDefinitionDir(dir);
 		}
 	}
 
+	private int parseDefinitionDir(File dir) {
+		int num = 0;
+		for( final File file : dir.listFiles() ) {
+			if( file.getName().endsWith(".json") ) {
+				++num;
+				parseDefinitions(file);
+			}
+		}
+		return num;
+	}
 	private void parseDefinitions(File file) {
-		// TODO Auto-generated method stub
-		
+		OreHandler.parseOreDefinition(file);
 	}
 	
 }
