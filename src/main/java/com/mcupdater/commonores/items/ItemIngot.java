@@ -2,6 +2,7 @@ package com.mcupdater.commonores.items;
 
 import com.mcupdater.commonores.CommonOres;
 import com.mcupdater.commonores.CreativeTabCO;
+import com.mcupdater.commonores.util.OreHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,13 +24,13 @@ public class ItemIngot extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		for (int i = 0; i < CommonOres.types.size(); i++) {
+		for (int i = 0; i < OreHandler.numTypes(); i++) {
 			subItems.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata()).toLowerCase();
+		return super.getUnlocalizedName(stack) + "." + OreHandler.get(stack.getMetadata()).toLowerCase();
 	}
 }

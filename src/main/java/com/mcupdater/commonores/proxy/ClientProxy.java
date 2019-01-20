@@ -3,6 +3,7 @@ package com.mcupdater.commonores.proxy;
 import com.mcupdater.commonores.CommonOres;
 import com.mcupdater.commonores.client.ResourceListener;
 import com.mcupdater.commonores.util.ColorHandler;
+import com.mcupdater.commonores.util.OreHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.SimpleReloadableResourceManager;
@@ -27,14 +28,14 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerModels() {
-		for (int i = 0; i <= CommonOres.types.size(); i++) {
+		for (int i = 0; i <= OreHandler.numTypes(); i++) {
 			ModelLoader.setCustomModelResourceLocation(CommonOres.oreBlock.getItemBlock(), i, blockOreRL);
 		}
 	}
 
 	@Override
 	public void registerRenders() {
-		for (int i = 0; i <= CommonOres.types.size(); i++) {
+		for (int i = 0; i <= OreHandler.numTypes(); i++) {
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(CommonOres.oreBlock), i, blockOreRL);
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new ColorHandler(), CommonOres.oreBlock);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ColorHandler(), CommonOres.oreBlock);

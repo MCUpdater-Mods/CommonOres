@@ -2,6 +2,7 @@ package com.mcupdater.commonores.world;
 
 import com.mcupdater.commonores.CommonOres;
 import com.mcupdater.commonores.CreativeTabCO;
+import com.mcupdater.commonores.util.OreHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -23,9 +24,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockOre extends Block {
 
 	public static final PropertyInteger TYPE;
+	public static final int MAX_TYPES = 15;
 
 	static {
-		TYPE = PropertyInteger.create("type", 0, CommonOres.types.size());
+		TYPE = PropertyInteger.create("type",0, MAX_TYPES );
 	}
 
 	private Item itemBlock;
@@ -61,7 +63,7 @@ public class BlockOre extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int type = 0; type < CommonOres.types.size(); type++) {
+		for (int type = 0; type < OreHandler.numTypes(); type++) {
 			list.add(new ItemStack(this, 1, type));
 		}
 	}
@@ -103,7 +105,8 @@ public class BlockOre extends Block {
 
 		@Override
 		public String getUnlocalizedName(ItemStack stack) {
-			return super.getUnlocalizedName(stack) + "." + CommonOres.types.get(stack.getMetadata()).toLowerCase();
+			// NB: should already be lowercase, but recast just for safety
+			return super.getUnlocalizedName(stack) + "." + OreHandler.get(stack.getMetadata()).toLowerCase();
 		}
 	}
 }

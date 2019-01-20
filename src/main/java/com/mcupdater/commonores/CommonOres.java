@@ -35,7 +35,6 @@ public class CommonOres {
 	public static Config config;
 
 	public static BlockOre oreBlock;
-	public static List<String> types = new ArrayList<String>();
 	public static ItemIngot ingotItem;
 
 	@EventHandler
@@ -46,13 +45,6 @@ public class CommonOres {
 		metadata = event.getModMetadata();
 		config = new Config(event.getSuggestedConfigurationFile());
 		log.info("loaded definitions for "+OreHandler.numTypes()+" ore types...");
-
-		// TODO: fork this out into a separate handler
-		final String[] oreTypes = {"Copper", "Tin"};
-
-		for (String type : oreTypes) {
-			types.add(type);
-		}
 
 		oreBlock = new BlockOre();
 		ingotItem = new ItemIngot();

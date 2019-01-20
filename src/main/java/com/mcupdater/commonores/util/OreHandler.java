@@ -34,4 +34,7 @@ public class OreHandler {
 	public static int numTypes() {
 		return getInstance().types.size();
 	}
+	public static String get(int idx) {
+		return getInstance().types.get(idx);
+	}
 }

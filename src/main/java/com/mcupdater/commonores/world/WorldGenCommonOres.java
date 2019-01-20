@@ -2,6 +2,7 @@ package com.mcupdater.commonores.world;
 
 import com.google.common.collect.Lists;
 import com.mcupdater.commonores.CommonOres;
+import com.mcupdater.commonores.util.OreHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -29,9 +30,9 @@ public class WorldGenCommonOres implements IWorldGenerator {
 
 	public WorldGenCommonOres(BlockOre block) {
 		generators = Lists.newArrayList();
-		for( int type = 0; type < CommonOres.types.size(); ++type ) {
+		for(int type = 0; type < OreHandler.numTypes(); ++type ) {
 			final IBlockState state = block.getDefaultState().withProperty(BlockOre.TYPE, type);
-			CommonOres.log.info("registering generator for "+state.toString()+", "+ CommonOres.types.get(type));
+			CommonOres.log.info("registering generator for "+state.toString()+", "+ OreHandler.get(type));
 			final WorldGenMinable gen = new WorldGenMinable(
 					state,
 					DEFAULT_ORE_AMOUNT,
